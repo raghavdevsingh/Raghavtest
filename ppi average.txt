@@ -1,0 +1,8 @@
+PPI Average = 
+    SUMX(
+        KEEPFILTERS(filter(values('PPI Details'[Platform]),[ppi_sku_weight]>0)),
+        [ppi_sku_weight]*[channel_weight]
+    )/SUMX(
+        KEEPFILTERS(filter(values('PPI Details'[Platform]),[ppi_sku_weight]>0)),
+        [channel_weight]
+    )
