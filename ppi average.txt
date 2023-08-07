@@ -6,3 +6,12 @@ PPI Average =
         KEEPFILTERS(filter(values('PPI Details'[Platform]),[ppi_sku_weight]>0)),
         [channel_weight]
     )
+
+
+channel_weight = max('PPI Details'[channel_weight_value])
+
+
+ppi_sku_weight = if(OR(sum('PPI Details'[numerator])=0,sum('PPI Details'[denominator])=0),0,sum('PPI Details'[numerator])/sum('PPI Details'[denominator])*100)
+
+
+
